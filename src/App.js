@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+
 import './App.css';
+import TextForm from './components/TextForm';
+import './index.css'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    < >
+    <h1 className='bg-black text-white text-center py-3 text-2xl sm:text-4xl font-bold'>Text Editor</h1>
+      {/* Main Content */}
+      <div className="container mx-2 my-3">
+        <TextForm heading="Enter the text to analyze" />
+      </div>
 
+    </>
+);
+}
 export default App;
