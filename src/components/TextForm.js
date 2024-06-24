@@ -31,6 +31,12 @@ export default function TextForm(props) {
   const handelBold = () => {
     setIsBold(!isBold)
   }
+ 
+  const handleCopy = () => {
+    let text = document.getElementById('TextBox')
+    text.select()
+    navigator.clipboard.writeText(text.value)
+  }
 
 const handelItalic = () => {
   setIsItalic(!isItalic);
@@ -58,7 +64,7 @@ const changeAlignment = (align) => {
             <h1 className=" mb-3 text-sm mt-3  sm:text-xl md:text-2xl lg-3xl text-black font-serif "><b>{props.heading}</b></h1>
             {/* Toolbar */}
             <div className="toolbar mb-2  ">
-              <button onClick={handelBold} className="btn hover:bg-green-800 hover:text-white">
+              <button onClick={handelBold} className="btn hover:bg-green-800 hover:text-white" id="boldbtn">
               <i className={`fas fa-bold ${isBold ? '' : ''} text-sm`}></i>
               </button>
               <button onClick={handelItalic} className="btn hover:bg-green-800  hover:text-white">
@@ -78,10 +84,12 @@ const changeAlignment = (align) => {
             <textarea className="form-control flex w-[250px] border-y-2 border-x-2 border-black sm:w-[400px]  md:w-[600px] lg:w-[700px] xl:w-[800px]  " value={text} onChange={handleChanges}id="TextBox" rows="10" style={getTextStyle()}></textarea>
           </div>
         </div>
-        <div className="flex my-3 text-sm">
+        <div className="flex my-3 text-sm sm:mx-0">
           <button className="btn text-sm bg-green-800 text-white hover:bg-blue-700" onClick={handleUpperCase}>Convert to UpperCase</button>
           <button className="btn text-sm mx-2 bg-green-800 text-white hover:bg-blue-700" onClick={handleLowerCase}>Convert to LowerCase</button>
-          <button className="btn text-sm bg-green-800 text-white hover:bg-blue-700" onClick={handleClear}>Clear</button>
+          <button className="btn text-sm bg-green-800 text-white hover:bg-blue-700" onClick={handleClear}>Clear Text</button>
+          <button className="btn text-sm mx-2 bg-green-800 text-white hover:bg-blue-700" onClick={handleCopy}>Copy Text</button>
+
         </div>
       </div>
       <div>
